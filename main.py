@@ -4,6 +4,7 @@ from aiogram import Bot, Dispatcher, F
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, FSInputFile
 from config import TOKEN
+import keyboard as kb
 
 from gtts import gTTS
 import os
@@ -43,7 +44,7 @@ async def help(message: Message):
 
 @dp.message(CommandStart())
 async def start(message: Message):
-    await message.answer(f'Приветики, {message.from_user.first_name}')
+    await message.answer(f'Приветики, {message.from_user.first_name}', reply_markup=kb.inline_keyboard_test)
 
 
 async def main():
